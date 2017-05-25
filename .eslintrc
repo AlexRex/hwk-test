@@ -1,0 +1,5 @@
+{
+  "plugins": ["eslint-plugin-import", "eslint-plugin-standard"],
+  "env": {"es6": true},
+  "parser": "babel-eslint",
+}
