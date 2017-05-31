@@ -1,10 +1,7 @@
 import Http from './http';
 import Lightbox from './lightbox';
 
-import {
-  times,
-  find
-} from 'lodash';
+import { times, find } from 'lodash';
 
 const http = new Http();
 const lightbox = new Lightbox();
@@ -21,10 +18,14 @@ export default class Products {
       .then((response) => {
         products = response.data.products;
         this.iterateProducts();
-        this.handleEnd();
+        this.handleScrollEnd();
       });
   }
-
+  
+  /**
+   * Cargamos nuevos anuncios. La carga es "falsa" ya que al no disponer de una API cargamos todos los anuncios
+   * de golpe al iniciar la app y vamos mostrando de 10 en 10. Hay un timeout simulando un tiempo de carga de 600ms. 
+   */
   iterateProducts() {
     if (iteration < products.length) {
       let cardGridElement = document.querySelector('#cards-grid');
@@ -32,44 +33,47 @@ export default class Products {
         html, image, imageHover, div;
 
       loading = true;
-
-      times(10, () => {
-        image = find(products[iteration].images, (image) => {
-          return image.position === 1;
-        });
-        
-        if (image && image.src) {
-          div = document.createElement('div');
-          html =
-            `<div class="card" id="card-${iteration}">
-                <div class="img-header" onclick="products.openImage(${iteration})">
-                  <img src="${image.src}">
-                </div>
-                <div class="content">
-                  <h3 class="glass-title">${products[iteration].title}</h3>
-                  <div class="price-container">
-                    <span class="price">25€</span>
+      setTimeout(() => {
+        times(10, () => {
+          image = find(products[iteration].images, (image) => {
+            return image.position === 1;
+          });
+          
+          if (image && image.src) {
+            div = document.createElement('div');
+            html =
+              `<div class="card" id="card-${iteration}">
+                  <div class="img-header" onclick="products.openImage(${iteration})">
+                    <img class="card-img" src="${image.src}">
                   </div>
-                </div>
-              </div>`;
+                  <div class="content">
+                    <h3 class="card-title">${products[iteration].title}</h3>
+                    <div class="price-container">
+                      <span class="price">25€</span>
+                    </div>
+                  </div>
+                </div>`;
 
-          div.innerHTML = html;
-          cardGridElement.appendChild(div.childNodes[0]);
-        }
+            div.innerHTML = html;
+            cardGridElement.appendChild(div.childNodes[0]);
+          }
 
-        iteration++;
-      });
+          iteration++;
+        });
 
-      loaderElement.style.visibility = 'hidden';
-      loading = false;
-      
+        loaderElement.style.visibility = 'hidden';
+        loading = false;
+      }, 600);
     } else {
       loaderElement.style.visibility = 'hidden';
       loading = false;
     }
   }
-
-  handleEnd() {
+  
+  /**
+   * Escuchamoes el evento del scroll en el final de la pagina y cargamos nuevos anuncios
+   */
+  handleScrollEnd() {
     let end = (event) => {
       if (document.body.scrollTop + window.innerHeight >= document.body.scrollHeight && !loading) {
         loaderElement.style.visibility = 'visible';
@@ -79,7 +83,11 @@ export default class Products {
 
     document.addEventListener('scroll', end);
   }
-
+  
+  /**
+   * Abrimos el lightbox
+   * @param {number} id id de la imagen
+   */
   openImage(id) {
     lightbox.openLightBox(products[id]);
   }

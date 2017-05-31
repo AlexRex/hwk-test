@@ -24,7 +24,7 @@ export default class Lightbox {
   }
   
   /**
-   * Escuchamos eventos click
+   * Escuchamos eventos click. Cuando hacemos click dentro del contenedor cargamos la siguiente imagen. 
    */
   handleEvents() {
     lightbox.addEventListener('click', (event) => {

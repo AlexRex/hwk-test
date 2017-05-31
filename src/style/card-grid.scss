@@ -1,0 +1,72 @@
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .card {
+    cursor: pointer;
+    flex: 0 0 30.5%;
+    margin: 3em 0.5em;
+    animation-duration: 700ms;
+    animation-name: cardAnimation;
+    animation-timing-function: ease-in-out;
+    
+    @keyframes cardAnimation {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 100;
+      }
+    }
+    
+    @include mq(xs) {
+      flex: 0 0 100%;
+    }
+    
+    @include mq(lg) {
+      flex: 0 0 45%;
+    }
+
+    .img-header {
+      border-bottom: 2px solid $card-border;
+      
+      .card-img {
+        width: 100%;
+      }
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      height: 24px;
+      padding-top: 4px;
+
+      .card-title {
+        margin: 0;
+        font-weight: normal;
+        font-size: 0.6em;
+        line-height: 140%;
+        letter-spacing: 0.15em;
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .price-container {
+        background-color: $dark;
+        color: $white;
+        font-weight: normal;
+        padding: 3px 5px 5px;
+        font-size: 0.75em;
+        letter-spacing: 0.15em;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+      }
+    }
+  }
+}
