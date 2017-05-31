@@ -1,16 +1,40 @@
 <!doctype html>
 <html class="default">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title>Hawkers</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <link rel="shortcut icon" type="image/png" href="src/img/favicon.png">
+  <title>Hawkers</title>
 </head>
 
-<body id="body">
-<div id="outdated"></div>
-<div id="root"></div>
+<body>
 
-<script async src="/static/bundle.js"></script>
+  <div class="app">
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/xo3FF84XNxk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>  
+    </div>
+    <div class="banners-grid">
+      <div class="banner-1-2">
+        <div class="banner-1"><img src="src/img/banner-1.jpg" alt="banner-1"></div>
+        <div class="banner-2"><img src="src/img/banner-3.jpg" alt="banner-3"></div>
+      </div>
+      <div class="banner-3"><img src="src/img/banner-2.jpg" alt="banner-2"></div>
+    </div>
+
+    <div class="cards-grid" id="cards-grid"></div>
+    <div class="loader" id="loader"></div>
+  </div>
+  
+  <div class="lightbox" id="lightbox">
+    <div class="background"></div>
+    <div class="content" id="lightbox-content">
+      <img id="lightbox-img">
+    </div>
+  </div>
+
+  <script async src="/static/bundle.js"></script>
 
 </body>
+
 </html>

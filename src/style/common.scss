@@ -1,20 +1,133 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url( 'https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 @import 'variables';
 
-html,
-body {
-  height: 100vh;
-  width: 100vw;
-  background: #f1f6f9 !important;
+body,
+html {
+  height: 150vh;
+  max-width: 100vw;
   font-family: 'Open Sans', sans-serif;
+  color: #222;
+  margin: 0;
 }
 
-#root {
+.app {
+  max-width: $mq-lg;
+  margin: 0 auto 100px; // quitar
+}
+
+.video {
+  iframe {
+    width: 100%;
+    height: 40vw;
+    max-height: 500px;
+  }
+}
+
+.banners-grid {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  font-size: 40px;
-  color: $text;
+  flex-wrap: wrap;
+
+  .banner-1-2 {
+    flex: 2 0 0;
+
+    .banner-1,
+    .banner-2 {
+      padding: 3px 6px 3px 0;
+      
+      @media screen and (max-width: 400px) {
+        padding: 0px 4px 0px 0;
+      }
+    }
+  }
+
+  .banner-3 {
+    flex: 1 0 0;
+    padding: 0.3% 0 0.8% 0.6%;
+    
+    @media screen and (max-width: 640px) {
+      padding: 0.6% 0 1.4% 0.6%;
+    }
+    
+    @media screen and (max-width: 400px) {
+      padding: 0% 0 1.9% 0.6%;
+    }
+  }
+
+  img {
+    min-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .card {
+    cursor: pointer;
+    flex: 0 0 30.5%;
+    margin: 3em 0.5em;
+    animation-duration: 700ms;
+    animation-name: cardAnimation;
+    animation-timing-function: ease-in-out;
+    
+    @keyframes cardAnimation {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 100;
+      }
+    }
+    
+    @media screen and (max-width: 1025px) {
+      flex: 0 0 45%;
+    }
+    
+    @media screen and (max-width: 400px) {
+      flex: 0 0 90%;
+    }
+
+    .img-header {
+      border-bottom: 2px solid #535353;
+      
+      img {
+        width: 100%;
+      }
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      height: 24px;
+      padding-top: 4px;
+
+      h3 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 0.6em;
+        line-height: 140%;
+        letter-spacing: 0.15em;
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .price-container {
+        background-color: #000;
+        color: #fff;
+        font-weight: normal;
+        padding: 3px 5px 5px;
+        font-size: 0.75em;
+        letter-spacing: 0.15em;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+      }
+    }
+  }
 }

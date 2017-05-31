@@ -1,10 +1,9 @@
 {
   "private": false,
-  "name": "Prueba-Hawkers",
+  "name": "prueba-hawkers",
   "version": "1.0.0",
-  "description": "",
-  "homepage": "",
-  "author": "",
+  "description": "Prueba técnica hawkers",
+  "author": "Alex Torres <aletormat@gmail.com>",
   "scripts": {
     "dev": "webpack-dev-server --output-public-path=/static/",
     "prod": "cross-env NODE_ENV=production webpack-dev-server --env.prod=true",
@@ -17,6 +16,7 @@
     "lintfix-css": "stylefmt --config ./.stylelintrc --recursive ./src/**/*.scss"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-core": "6.10.4",
     "babel-eslint": "7.1.1",
     "babel-loader": "6.2.4",
@@ -40,6 +40,7 @@
     "happypack": "3.0.2",
     "img-loader": "2.0.0",
     "imports-loader": "0.7.1",
+    "lodash": "^4.17.4",
     "node-sass": "4.5.1",
     "outdated-browser-pro": "1.0.0",
     "promise-polyfill": "6.0.2",
@@ -50,12 +51,12 @@
     "stylelint": "7.9.0",
     "stylelint-scss": "1.4.1",
     "stylelint-webpack-plugin": "0.7.0",
+    "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
+    "uglifyjs-webpack-plugin": "0.4.3",
     "url-loader": "0.5.7",
     "webpack": "2.3.2",
     "webpack-dev-middleware": "1.8.4",
     "webpack-dev-server": "2.3.0",
-    "webpack-hot-middleware": "2.13.2",
-    "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
-    "uglifyjs-webpack-plugin": "0.4.3"
+    "webpack-hot-middleware": "2.13.2"
   }
 }
