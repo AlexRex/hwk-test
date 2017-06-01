@@ -72,3 +72,16 @@ Primero abriría la consola para ver si hay algún error de código. Segundo mir
 > Imagina que estás en el equipo de Hwk. y perteneces al Frontend Team, ¡por fin! :) De repente te avisan un martes a las 21 de la noche de que el e-commerce online (principal canal de venta actual de la marca) se ha caído. ¿Qué harías?
 
 Pues primero, mosquearme bastante si esa situación se da un martes a las 21 de la noche... ;( Segundo trataría de contactar con el resto de compañeros para ver si saben de qué problema se trata, y a continuación intentaría volver a levantar la página. 
+  
+  
+### Lanzar el proyecto en local
+
+Para lanzar el proyecto clonar el repositorio o descargarlo e instalar las dependencias:
+
+    npm install
+    
+A continuación lanzar el proyecto con: 
+
+    npm run dev
+    
+Y acceder a [http://localhost:3000/](http://localhost:3000/).
